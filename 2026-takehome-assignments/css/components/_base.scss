@@ -1,0 +1,43 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Fraunces', serif;
+    list-style:none;
+}
+
+body{
+    min-height:100vh;
+    scroll-behavior:smooth;
+}
+
+html{
+    font-size:18px;
+    scroll-behavior: smooth;
+}
+
+.attribution { 
+    position:fixed;
+    bottom:0;
+    font-size: 11px; 
+    text-align: center;
+    a { color: hsl(228, 45%, 44%); }
+}
+li{
+    list-style: none;
+    a{
+        text-decoration: none;
+
+    }
+}
+
+.desktop-img,.mobile-img{
+   width: 100%;
+    object-fit: cover;
+    height: 500px;
+    display:block;
+}
+
+.desktop-img{
+    display: none;
+}

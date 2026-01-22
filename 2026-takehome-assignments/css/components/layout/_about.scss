@@ -1,0 +1,114 @@
+.about-section{
+     display: grid;
+     // grid-template-columns:repeat(auto-fit,minmax(430px,1fr));
+     grid-template-columns: repeat(400px,1fr);
+     .img1{
+          grid-row: 1/2;
+          img{
+               overflow: hidden;
+               object-fit: cover;
+          }
+     }
+     
+     .box1,.box2{
+          text-align: center;
+          height: 500px;
+          display: grid;
+          place-content: center;
+          .content{
+               margin:0 1em;
+               h2{
+                    font-size: 1.7rem;
+                    line-height: 40px;
+                    font-weight: 900;
+                    color:$desaturate-blue;
+                    margin-bottom: 2rem;
+                    
+               }
+               p{
+                    font-size: .9rem;
+                    line-height: 30px;
+                    color:$grayish-blue;
+                    font-weight: 700;
+                    margin-bottom: 2em;
+               }
+               a{
+                    color:$desaturate-blue;
+                    text-decoration: none;
+                    font-size:.9rem;
+                    font-weight: 900;
+                    cursor: pointer;
+                    position: relative;
+                    text-transform: uppercase;
+                    z-index: 1;
+                    &:after{
+                         content: "";
+                         position: absolute;
+                         bottom:-.2rem;
+                         left:-.4rem;
+                         padding-right: .5rem;
+                         height: .5rem;
+                         background-color: $yellow;
+                         width:100%;
+                         z-index: -1;
+                         border-radius: .3rem;
+                         opacity: 0.3;
+                    }
+               }
+          }
+     }
+   
+   
+     .box3{
+          .content{
+               h2{
+                    color:$graphic-design-text;
+               }
+               p{
+                    color:$graphic-design-text;
+               }
+               
+          }
+     }
+
+     .box3,.box4{
+          position:relative;
+          .content{
+               position: absolute;
+               inset: 0;
+               display: grid;
+               align-content: end;
+               text-align: center;
+               width:350px;
+               margin:0 auto;
+               margin-bottom: 1.3em;
+               padding:0 1em;
+               
+               h2{
+                    font-size:1.4rem;
+                    letter-spacing: 1px;
+                    font-weight: 900;
+                    text-transform: capitalize;
+                    margin-bottom:1em;
+               }
+               p{
+                    font-size: .8rem;
+                    line-height: 26px;
+                    font-weight: 700;
+               }
+          }
+     }
+
+     .box4{
+          .content{
+               h2{
+                    color:$photography-text;
+               }
+               p{
+                    color:$photography-text;
+               }
+               
+          }
+     }
+     
+}
