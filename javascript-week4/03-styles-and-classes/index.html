@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lesson 03 - Styles and Classes</title>
+		<script src="./index.js" defer></script>
+		<style>
+			:root {
+				--page-bg: #f4f0fb;
+				--panel-bg: #fcf9ff;
+				--card-bg: #ffffff;
+				--text-main: #231b35;
+				--text-soft: #695f80;
+				--accent: #9340d1;
+				--accent-soft: #eddcfb;
+				--border: #e2d4ef;
+				--shadow: 0 24px 60px rgba(78, 37, 116, 0.14);
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				min-height: 100vh;
+				display: grid;
+				place-items: center;
+				padding: 24px;
+				font-family: "Gill Sans", "Segoe UI", sans-serif;
+				background:
+					radial-gradient(circle at top right, rgba(147, 64, 209, 0.18), transparent 30%),
+					linear-gradient(145deg, #f5effd 0%, #ebe1f7 100%);
+				color: var(--text-main);
+			}
+
+			.board {
+				width: min(100%, 980px);
+				background: var(--panel-bg);
+				border: 1px solid var(--border);
+				border-radius: 30px;
+				padding: 32px;
+				box-shadow: var(--shadow);
+				display: grid;
+				gap: 22px;
+			}
+
+			.header {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				gap: 16px;
+				align-items: center;
+			}
+
+			h1 {
+				margin: 0;
+				font-size: clamp(2rem, 4vw, 3.2rem);
+			}
+
+			.copy {
+				margin: 10px 0 0;
+				max-width: 55ch;
+				color: var(--text-soft);
+				line-height: 1.7;
+			}
+
+			.button-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 12px;
+			}
+
+			button {
+				border: none;
+				border-radius: 999px;
+				padding: 12px 18px;
+				font: inherit;
+				cursor: pointer;
+			}
+
+			#highlight-button {
+				background: var(--accent);
+				color: white;
+			}
+
+			#theme-button {
+				background: white;
+				color: var(--text-main);
+				border: 1px solid var(--border);
+			}
+
+			.card-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+				gap: 16px;
+			}
+
+			.lesson-card {
+				background: var(--card-bg);
+				border: 1px solid var(--border);
+				border-radius: 22px;
+				padding: 20px;
+				transition: transform 180ms ease, box-shadow 180ms ease;
+			}
+
+			.lesson-card h2 {
+				margin: 0 0 10px;
+			}
+
+			.lesson-card p {
+				margin: 0;
+				line-height: 1.6;
+				color: var(--text-soft);
+			}
+
+			.is-highlighted {
+				border-color: var(--accent);
+				box-shadow: 0 20px 40px rgba(147, 64, 209, 0.18);
+				transform: translateY(-4px);
+			}
+
+			.is-hidden {
+				display: none;
+			}
+
+			.alt-theme {
+				background: #20192c;
+				color: #f7f2ff;
+				border-color: #3a2f4f;
+			}
+
+			.alt-theme p {
+				color: #d6ccea;
+			}
+		</style>
+	</head>
+	<body>
+		<main class="board">
+			<section class="header">
+				<div>
+					<h1 id="board-title">Styling with JavaScript</h1>
+					<p class="copy" id="board-copy">
+						A style board for inline changes, class toggling, and visibility
+						states.
+					</p>
+				</div>
+
+				<div class="button-row">
+					<button id="highlight-button">Highlight a card</button>
+					<button id="theme-button">Switch theme</button>
+				</div>
+			</section>
+
+			<section class="card-grid" id="style-card-grid">
+				<article class="lesson-card" id="first-style-card">
+					<h2>Inline styles</h2>
+					<p>Fast to test, but harder to maintain when a page starts growing.</p>
+				</article>
+
+				<article class="lesson-card feature-card">
+					<h2>Class toggling</h2>
+					<p>Useful for turning states on and off with cleaner CSS.</p>
+				</article>
+
+				<article class="lesson-card removable-card">
+					<h2>Visibility control</h2>
+					<p>Practice hiding, showing, and restoring elements.</p>
+				</article>
+			</section>
+		</main>
+	</body>
+</html>

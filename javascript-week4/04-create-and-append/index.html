@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lesson 04 - Create and Append</title>
+		<script src="./index.js" defer></script>
+		<style>
+			:root {
+				--page-bg: #eef4fb;
+				--panel-bg: #f9fbff;
+				--card-bg: #ffffff;
+				--text-main: #1f2940;
+				--text-soft: #66708a;
+				--accent: #2667c9;
+				--accent-soft: #dae7fb;
+				--border: #d5e1f2;
+				--shadow: 0 24px 60px rgba(38, 103, 201, 0.12);
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				min-height: 100vh;
+				display: grid;
+				place-items: center;
+				padding: 24px;
+				font-family: "Lucida Sans", "Segoe UI", sans-serif;
+				background:
+					linear-gradient(180deg, rgba(38, 103, 201, 0.08), transparent 36%),
+					linear-gradient(135deg, #edf4fc 0%, #dae6f7 100%);
+				color: var(--text-main);
+			}
+
+			.layout {
+				width: min(100%, 980px);
+				display: grid;
+				grid-template-columns: minmax(240px, 320px) 1fr;
+				gap: 22px;
+			}
+
+			.panel {
+				background: var(--panel-bg);
+				border: 1px solid var(--border);
+				border-radius: 28px;
+				padding: 28px;
+				box-shadow: var(--shadow);
+			}
+
+			h1,
+			h2 {
+				margin-top: 0;
+			}
+
+			p {
+				color: var(--text-soft);
+				line-height: 1.7;
+			}
+
+			.input-stack {
+				display: grid;
+				gap: 12px;
+			}
+
+			input,
+			button {
+				font: inherit;
+				border-radius: 16px;
+			}
+
+			input {
+				padding: 14px 16px;
+				border: 1px solid var(--border);
+				background: white;
+			}
+
+			button {
+				padding: 14px 18px;
+				border: none;
+				cursor: pointer;
+				background: var(--accent);
+				color: white;
+			}
+
+			.task-list {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				display: grid;
+				gap: 14px;
+			}
+
+			.task-item {
+				background: var(--card-bg);
+				border: 1px solid var(--border);
+				border-radius: 18px;
+				padding: 16px 18px;
+				display: flex;
+				justify-content: space-between;
+				gap: 12px;
+				align-items: center;
+			}
+
+			.empty-state {
+				margin: 0;
+				padding: 18px;
+				border: 1px dashed var(--border);
+				border-radius: 18px;
+				background: rgba(255, 255, 255, 0.8);
+			}
+
+			.muted-note {
+				font-size: 0.95rem;
+			}
+
+			@media (max-width: 760px) {
+				.layout {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main class="layout">
+			<section class="panel">
+				<h1>Building DOM elements</h1>
+				<p>
+					A task board for creating elements, appending them, prepending them,
+					and removing them.
+				</p>
+
+				<div class="input-stack">
+					<input
+						type="text"
+						id="task-input"
+						placeholder="Type a new task idea"
+					/>
+					<button id="add-task-button">Add task card</button>
+				</div>
+
+				<p class="muted-note">
+					An extra button can be added to each item later if needed.
+				</p>
+			</section>
+
+			<section class="panel">
+				<h2 id="task-board-title">Workshop task board</h2>
+				<p id="task-board-copy">
+					New cards can appear here as the list grows.
+				</p>
+
+				<p class="empty-state" id="empty-state">
+					No tasks have been added yet.
+				</p>
+
+				<ul class="task-list" id="task-list">
+					<li class="task-item">
+						<span>Existing sample task</span>
+						<strong>Starter</strong>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
