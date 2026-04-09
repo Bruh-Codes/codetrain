@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lesson 05 - Events</title>
+		<script src="./index.js" defer></script>
+		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+		<style>
+			:root {
+				color-scheme: light;
+				--bg: #ffffff;
+				--surface: #ffffff;
+				--surface-strong: #f2f2f2;
+				--text: #000000;
+				--muted: #4b5563;
+				--border: #000000;
+				--shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+			}
+
+			html.dark {
+				color-scheme: dark;
+				--bg: #111111;
+				--surface: #000000;
+				--surface-strong: #1a1a1a;
+				--text: #ffffff;
+				--muted: #d1d5db;
+				--border: #ffffff;
+				--shadow: none;
+			}
+
+			body {
+				background-color: var(--bg);
+				color: var(--text);
+				transition:
+					background-color 0.25s ease,
+					color 0.25s ease;
+			}
+
+			header,
+			#mobile-menu,
+			#theme-button,
+			#menu-button {
+				background-color: var(--surface);
+				color: var(--text);
+				transition:
+					background-color 0.25s ease,
+					color 0.25s ease,
+					box-shadow 0.25s ease,
+					opacity 0.25s ease,
+					transform 0.25s ease;
+			}
+
+			header {
+				box-shadow: var(--shadow);
+			}
+
+			#theme-button:hover,
+			#menu-button:hover,
+			#mobile-menu a:hover {
+				background-color: var(--surface-strong);
+			}
+
+			#menu-button .bar {
+				background-color: var(--text);
+				transition: background-color 0.25s ease;
+			}
+
+			#mobile-menu.hidden {
+				opacity: 0;
+				pointer-events: none;
+				transform: translateY(-8px);
+			}
+		</style>
+	</head>
+	<body class="min-h-screen">
+		<header class="relative mx-auto mt-6 w-[min(92%,1200px)] rounded-2xl">
+			<div class="flex items-center justify-between p-4">
+				<span class="text-lg font-semibold">Logo</span>
+
+				<nav class="flex items-center gap-4">
+					<ul class="hidden gap-4 md:flex">
+						<li>
+							<a class="rounded-md px-3 py-2" href="../lesson-01/">Home</a>
+						</li>
+						<li>
+							<a class="rounded-md px-3 py-2" href="../lesson-02/">About</a>
+						</li>
+						<li>
+							<a class="rounded-md px-3 py-2" href="../lesson-03/">Services</a>
+						</li>
+					</ul>
+
+					<button
+						id="theme-button"
+						type="button"
+						aria-label="Toggle theme"
+						class="rounded-md px-4 py-2"
+					>
+						🌙
+					</button>
+
+					<button
+						id="menu-button"
+						type="button"
+						aria-label="Toggle mobile menu"
+						aria-expanded="false"
+						aria-controls="mobile-menu"
+						class="flex flex-col gap-1 rounded-md p-3 shadow-md md:hidden"
+					>
+						<span class="bar h-0.5 w-5 rounded-full"></span>
+						<span class="bar h-0.5 w-5 rounded-full"></span>
+						<span class="bar h-0.5 w-5 rounded-full"></span>
+					</button>
+				</nav>
+			</div>
+
+			<ul
+				id="mobile-menu"
+				class="hidden absolute left-4 right-4 top-[calc(100%+0.75rem)] flex-col gap-2 rounded-2xl p-4 shadow-lg md:hidden"
+			>
+				<li>
+					<a class="block rounded-md px-3 py-2" href="../lesson-01/">Home</a>
+				</li>
+				<li>
+					<a class="block rounded-md px-3 py-2" href="../lesson-02/">About</a>
+				</li>
+				<li>
+					<a class="block rounded-md px-3 py-2" href="../lesson-03/"
+						>Services</a
+					>
+				</li>
+			</ul>
+		</header>
+	</body>
+</html>
